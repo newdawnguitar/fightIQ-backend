@@ -1,3 +1,5 @@
+
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -5,6 +7,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const auth = require('./api/routes/auth');
 const port = process.env.PORT || 5000;
+const test = require('./api/routes/test');
 
 //body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,7 +26,8 @@ app.use(passport.initialize());
 //passport config
 require('./config/passport')(passport);
 
-//API ROUTES 
+//API ROUTES
+app.use('/api/test', test);
 app.use('/api/auth', auth);
 
 //YOU CAN CREATE MORE API ROUTES HERE
