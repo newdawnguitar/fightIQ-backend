@@ -12,7 +12,6 @@ const secret = require('../../config/keys');
 
 router.get('/online', (req, res) => {
     res.json({success:true, data:"server is online and running!"})
-
 });
 
 
